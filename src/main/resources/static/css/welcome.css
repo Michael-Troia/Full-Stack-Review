@@ -1,0 +1,38 @@
+#top {
+    text-align: center;
+}
+
+h2, h3 {
+    color: orange;
+    text-decoration: underline;
+}
+
+html {
+    background-color: lightblue;
+    font-family: Verdana;
+}
+
+.bowling {
+    background-image: url("../img/VaporWaveStrike.png");
+    background-repeat: repeat;
+    margin: 100px;
+    padding: 20px;
+}
+
+ul {
+    list-style: square;
+}
+
+table {
+    padding: 20px;
+}
+th {
+    font-size: large;
+}
+td {
+    font-size: medium;
+}
+
+a:hover {
+    font-size: large;
+}
