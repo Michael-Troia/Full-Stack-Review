@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="../static/js/keys.js"></script>
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="../static/js/mapbox-geocoder-utils.js"></script>
+
+<h1>Palm Bay, Florida</h1>
+<div id='map'></div>
+
+<script>
+    mapboxgl.accessToken = MAPBOX_TOKEN;
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-80.6726, 27.9990]
+    });
+
+    let Restaurants = [
+        {
+            name: "Culver's",
+            address: "4355 Norfolk Pkwy, West Melbourne, FL 32904",
+            desc: "A family-favorite restaurant known for their local ButterBurgers, Fresh Frozen Custard & Wisconsin Cheese Curds."
+        },
+        {
+            name: "Outback Steakhouse",
+            address: "1600 W New Haven Ave, Melbourne, FL 32904",
+            desc: "The home of juicy steaks, spirited drinks and Aussie hospitality."
+        },
+        {
+            name: "China Wok",
+            address: "1150 Malabar Rd SE, Palm Bay, FL 32907",
+            desc: "A family-owned and operated  restaurant dedicated to serving quality food to you and your family."
+        }
+    ]
+
+    Restaurants.forEach(function(restaurant) {
+        geocode(restaurant.address, MAPBOX_TOKEN).then(function (result) {
+            new mapboxgl.Marker()
+                .setLngLat(result)
+                .addTo(map)
+                .setPopup(new mapboxgl.Popup()
+                    .setHTML('<h3>' + restaurant.name + '</h3>' + '<p>' + restaurant.desc + '</p>'))
+        })
+    })
+</script>
+</body>
+</html>
