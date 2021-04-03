@@ -27,10 +27,10 @@ function searchCoffee() {
 }
 
 function renderCoffee(coffee) {
-    let html = '<tr class="coffee">';
-    html += '<td>' + '<h3>'+ coffee.name + '</h3>' + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    let html = '<div class="coffee">';
+    html += '<h1>'+ coffee.name + '</h1>';
+    html += '<p>' + coffee.roast + '</p>';
+    html += '</div>';
 
     return html;
 }

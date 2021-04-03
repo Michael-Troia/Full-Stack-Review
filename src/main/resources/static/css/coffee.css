@@ -1,3 +1,7 @@
+body {
+    background-color: #ffd1a9;
+}
+
 table {
     border-collapse: collapse;
     margin: 15px 0;
@@ -7,3 +11,51 @@ td, th {
     border: 1px solid black;
     padding: 5px 10px;
 }
+
+.coffee {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.coffee:hover {
+    background-color: #484848;
+    color: white;
+}
+
+#content {
+    background-color: white;
+    padding: 2em;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#header {
+    background-color: chocolate;
+    color: white;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+#search-box {
+    margin: 20px;
+}
+
+#new-coffee-form {
+    padding: 0 2em 2em 2em;
+    background-color: #eaeaea;
+    border: 1px solid gray;
+}
+
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:576px) { /* ... */ }
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) { /* ... */ }
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) { /* ... */ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) { /* ... */ }
