@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+<body>
+<script>
+    "use strict";
+    $(document).ready(function() {
+        //vanilla js
+        // let click = document.getElementById('click');
+        // click.addEventListener('click', function (e) {
+        //     alert('You clicked!');
+        $('#click').click(function() {
+            alert('You clicked!');
+        });
+        $('#dblClick').dblclick(function () {
+            alert('You double clicked!');
+        });
+        $('#hover').hover(
+            function() {
+                $(this).css('background-color', '#FF0');
+            },
+            function() {
+                $(this).css('background-color', '#FFF');
+            }
+        );
+
+        //todo keyboard events
+    });
+</script>
+
+<h1 id="header">jQuery Refreshments!</h1>
+<p id="jInfo" class="fun">This page is just a little refresher on some jQuery topics.</p>
+<p class="fun">Coding is like riding a bike.</p>
+<p class="fun">You have to constantly remind yourself how to do it, or else you'll forget!</p>
+<p class="fun">Just like a bike</p>
+<hr>
+<div id="list">
+    <h3>Types of jQuery Selectors:</h3>
+    <ul>
+        <li>$('p')</li>
+        <li>$('.class')</li>
+        <li>$('#id')</li>
+    </ul>
+    <hr>
+    <h3>Mouse Events</h3>
+    <ul>
+        <li id="click">.click()</li>
+        <li id="dblClick">.dblClick()</li>
+        <li id="hover">.hover()</li>
+    </ul>
+    <p class="note">The .hover() event handles mouseenter and mouseleave. It looks like $(selector).hover(handlerIn, handlerOut)</p>
+    <hr>
+    <h3>Keyboard Events</h3>
+    <ul>
+        <li>.keydown()</li>
+        <li>.keypress()</li>
+        <li>.keyup()</li>
+        <li>.on()</li>
+        <li>.off()</li>
+    </ul>
+</div>
+
+
+</body>
+</html>
