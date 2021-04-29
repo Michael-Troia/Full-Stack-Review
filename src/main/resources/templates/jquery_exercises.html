@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
 <script>
@@ -54,6 +59,7 @@
 <p class="fun">You have to constantly remind yourself how to do it, or else you'll forget!</p>
 <p class="fun">Just like a bike</p>
 <hr>
+
 <div id="list">
     <h3>Types of jQuery Selectors:</h3>
     <ul>
@@ -78,7 +84,43 @@
     </ul>
     <button id="reset">Click to Reset</button>
 </div>
+<hr>
 
+<h3>.html(), .css(), .addClass(), .removeClass(), .toggleClass()</h3>
+<ul>
+    <li class="html">Before</li>
+    <li class="css">Style</li>
+    <li class="class">If you can read this, this is visible</li>
+</ul>
+<br>
+<button id="html">Change it!</button>
+<button id="css">Style!</button>
+<button id="addClass">Disappear!</button>
+<button id="removeClass">Show Yourself!</button>
+<button id="toggleClass">Toggle visibility</button>
 
+<script>
+    $(document).ready(function(){
+       $('#html').click(function(){
+           $('.html').html('After');
+       });
+       $('#css').click(function(){
+           $('.css').css({
+               'color': 'red',
+               'background-color': 'yellow',
+               'font-size': '28px'
+           });
+       });
+       $('#addClass').click(function (){
+           $('.class').addClass('invisible');
+       });
+       $('#removeClass').click(function () {
+           $('.class').removeClass('invisible');
+       });
+       $('#toggleClass').click(function (){
+           $('.class').toggleClass('invisible');
+       });
+    });
+</script>
 </body>
 </html>
