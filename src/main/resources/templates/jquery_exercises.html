@@ -13,6 +13,8 @@
         // let click = document.getElementById('click');
         // click.addEventListener('click', function (e) {
         //     alert('You clicked!');
+
+        //mouse events
         $('#click').click(function() {
             alert('You clicked!');
         });
@@ -28,7 +30,21 @@
             }
         );
 
-        //todo keyboard events
+        //keyboard events
+        $('#keydown').keydown(function (){
+           $(this).css('background-color', '#FF0');
+        });
+        $('#keypress').keypress(function (){
+            $(this).css('background-color', '#FF0');
+        });
+        $('#keyup').keyup(function (){
+            $(this).css('background-color', '#FF0');
+        });
+        $('#reset').click(function (){
+           $('#keypress').css('background-color', '#FFF');
+            $('#keyup').css('background-color', '#FFF');
+            $('#keydown').css('background-color', '#FFF');
+        });
     });
 </script>
 
@@ -56,12 +72,11 @@
     <hr>
     <h3>Keyboard Events</h3>
     <ul>
-        <li>.keydown()</li>
-        <li>.keypress()</li>
-        <li>.keyup()</li>
-        <li>.on()</li>
-        <li>.off()</li>
+        <li><input type="text" id="keydown" value=".keydown()"></li>
+        <li><input type="text" id="keypress" value=".keypress()"></li>
+        <li><input type="text" id="keyup" value=".keyup()"></li>
     </ul>
+    <button id="reset">Click to Reset</button>
 </div>
 
 
