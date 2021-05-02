@@ -3,8 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map</title>
+    <script src="../static/js/keys.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="../static/js/mapbox-geocoder-utils.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="container" id='map' style='width: auto; height: 500px;'>
+    <script>
+        mapboxgl.accessToken = MAPBOX_TOKEN;
+
+        //Starting Map in Palm Bay
+        mapboxgl.accessToken = MAPBOX_TOKEN;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 11,//start zoom
+            center: [-80.5887, 28.0345]//start pos
+        });
+
+        //Fetches current weather in Palm Bay, FL
+        $(document).ready(function(){
+            var d = new Date();
+            var tz = Date();
+            $.ajax({
+                url: "http://api.openweathermap.org/data/2.5/forecast",
+                type: "GET",
+                data: {
+                    APPID: OPENWEATHER_TOKEN,
+                    q:     "Palm Bay, US",
+                    units: "imperial"
+                },
+                success: function (data){
+                    console.log(data);
+                    console.log(data.list[1].weather.main);
+                    var temp = data.main.temp.toFixed(0);
+                    var tempH = data.main.temp_max.toFixed(0);
+                    var tempL = data.main.temp_min.toFixed(0);
+                    var tempFeel = data.main.feels_like.toFixed(0);
+                    var city = data.name;
+                    var wind = data.wind.speed;
+                    var description = data.weather[0].description;
+                    var mainWeatherCondition = data.weather[0].main;
+                    var currentWeatherIcon;
+                }
+            })})
+    </script>
+</div>
 
 </body>
 </html>
