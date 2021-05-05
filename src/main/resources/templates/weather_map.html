@@ -11,8 +11,6 @@
 <body>
 <div class="container" id='map' style='width: auto; height: 500px;'>
     <script>
-        mapboxgl.accessToken = MAPBOX_TOKEN;
-
         //Starting Map in Palm Bay
         mapboxgl.accessToken = MAPBOX_TOKEN;
         var map = new mapboxgl.Map({
@@ -36,15 +34,15 @@
                 },
                 success: function (data){
                     console.log(data);
-                    console.log(data.list[1].weather.main);
-                    var temp = data.main.temp.toFixed(0);
-                    var tempH = data.main.temp_max.toFixed(0);
-                    var tempL = data.main.temp_min.toFixed(0);
-                    var tempFeel = data.main.feels_like.toFixed(0);
-                    var city = data.name;
-                    var wind = data.wind.speed;
-                    var description = data.weather[0].description;
-                    var mainWeatherCondition = data.weather[0].main;
+                    console.log(data.list[0].main);
+                    var temp = data.list[0].main.temp.toFixed(0);
+                    var tempH = data.list[0].main.temp_max.toFixed(0);
+                    var tempL = data.list[0].main.temp_min.toFixed(0);
+                    var tempFeel = data.list[0].main.feels_like.toFixed(0);
+                    var city = data.list[0].name;
+                    var wind = data.list[0].wind.speed;
+                    var description = data.list[0].weather[0].description;
+                    var mainWeatherCondition = data.list[0].weather[0].main;
                     var currentWeatherIcon;
                 }
             })})
